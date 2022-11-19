@@ -20,6 +20,7 @@ int main(){
     for(int a =0; a < N; a++){
         cin >> x >> y;
         cowBools[x][y] = 1;
+        if(x <= 1000  && y <= 999){
         if(cowBools[x][y+1] == 1){
             myArr[x][y] += 1;
             myArr[x][y+1] += 1;
@@ -29,6 +30,8 @@ int main(){
                 currComfy--;
             }
         }
+        }
+        if(x <= 1000 && y >= 1){
         if(cowBools[x][y-1] == 1){
             myArr[x][y] += 1;
             myArr[x][y-1] += 1;
@@ -38,6 +41,8 @@ int main(){
                 currComfy--;
             }
         }
+        }
+        if(x >= 1 && y <= 1000){
         if(cowBools[x-1][y] == 1){
             myArr[x][y] += 1;
             myArr[x - 1][y] += 1;
@@ -47,6 +52,8 @@ int main(){
                 currComfy--;
             }
         }
+        }
+        if(x <= 999 && y <= 1000){
         if(cowBools[x + 1][y] == 1){
             myArr[x][y] += 1;
             myArr[x + 1][y] += 1;
@@ -56,16 +63,11 @@ int main(){
                 currComfy--;
             }
         }
+        }
         if(myArr[x][y] == 3){
             currComfy++;
         }
         cout << currComfy << endl;
-    //     for(int a =0;a < 10; a++){
-    //     for(int b =0; b < 10; b++){
-    //         cout << myArr[a][b] << " ";
-    //     }
-    //     cout << endl;
-    // }
     }
 
     return 0;
